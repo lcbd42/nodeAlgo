@@ -7,6 +7,7 @@ const rl = readline.createInterface({
 let T;
 let inputs = [];
 let outputs = [];
+let cnt = 1;
 
 rl.on('line', function (line) {
 
@@ -16,7 +17,10 @@ rl.on('line', function (line) {
     else{
         const arr = line.split(' ').map(el => parseInt(el));
         const sum = arr[0] + arr[1];
-        outputs.push(`Case #${inputs.length}: ${arr[0]} + ${arr[1]} = ${sum}`);
+
+        if(arr[0] > 0 && arr[1] < 10){
+            outputs.push(`Case #${cnt++}: ${arr[0]} + ${arr[1]} = ${sum}`);
+        }
 
         T--;
         if (T == 0) rl.close();
